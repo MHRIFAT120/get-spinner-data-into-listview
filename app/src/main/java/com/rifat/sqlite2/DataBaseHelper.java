@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
 
 import androidx.annotation.Nullable;
 
@@ -30,10 +31,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+    //=============================================================
     public void SubmitData(String name,String gmail,String password,String mobile,String semester){
         SQLiteDatabase db=this.getWritableDatabase();
 
         ContentValues conval=new ContentValues();
+
         conval.put("name",name);
         conval.put("gmail",gmail);
         conval.put("password",password);
@@ -45,6 +49,33 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     //=============================================================
+
+
+
+    //=============================================================
+
+    public void updatedData(String id ,String name,String gmail,String password,String mobile,String semester){
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        ContentValues conval=new ContentValues();
+        conval.put("id",id);
+        conval.put("name",name);
+        conval.put("gmail",gmail);
+        conval.put("password",password);
+        conval.put("mobile",mobile);
+        conval.put("semester",semester);
+
+        // db.insert("user_table",null,conval);
+       // db.insert("my_table",null,conval);
+        
+   db.update("my_table", conval,  "id = ?", new String[]{id});
+
+    }
+    //=============================================================
+
+
+
+    //=============================================================
     //Amra jokon sokol data show korte cai
 
     public Cursor getAllData(){
@@ -53,6 +84,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return  cursor;
     }
     //=============================================================
+
+
 
     //=============================================================
     public Cursor SearchDataByName(String key){
@@ -70,7 +103,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db=this.getReadableDatabase();
         db.execSQL("delete from my_table where id like "+id);
     }
+
+
     //=============================================================
+
+
+
 
 
 }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15sp">
+
+    <EditText
+        android:id="@+id/edIdAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint=" Your ID"
+        android:backgroundTint="#000000"
+        android:layout_margin="10dp"
+
+        />
+
+    <EditText
+        android:id="@+id/edNameAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Enter Your Name"
+        android:backgroundTint="#000000"
+        android:layout_margin="10dp"
+
+        />
+
+
+    <EditText
+        android:id="@+id/edGmailAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="abc@gmail.com"
+        android:backgroundTint="#000000"
+        android:layout_margin="10dp"
+
+
+        />
+
+    <EditText
+        android:id="@+id/edPasswordAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Password"
+        android:layout_margin="10dp"
+        android:backgroundTint="#000000"
+
+        />
+
+    <EditText
+        android:id="@+id/edMobileAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="016xxxx"
+        android:backgroundTint="#000000"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/edSemesterAlertDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Select Your  Semester"
+        android:backgroundTint="#000000"
+        android:layout_margin="10dp"
+        />
+///////-------------------
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Select  Semester :"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="6dp"
+            >
+
+
+        </TextView>
+        <Spinner
+            android:id="@+id/edSpinnerAlertDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="#ffffff"
+            android:layout_marginLeft="5dp"
+            />
+
+    </LinearLayout>
+
+    //-------------------------------------------
+    //-------------------------------------------
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/chancelBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="#FFEB3B"
+            android:text="Chancel"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/okBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:background="#FFEB3B"
+            android:text="OK"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

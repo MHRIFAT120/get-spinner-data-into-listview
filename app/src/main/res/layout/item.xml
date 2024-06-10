@@ -17,6 +17,32 @@
         android:foreground="?attr/selectableItemBackgroundBorderless"
 
         >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serial Number  : "
+                android:textColor="#000000"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold"
+
+                />
+            <TextView
+                android:id="@+id/tvid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   id"
+                android:textColor="#000000"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -55,6 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Gmail ID :  "
+                android:textColor="#000000"
+
                 android:textStyle="italic"
                 android:layout_marginBottom="4dp"
 
@@ -115,6 +143,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mobile : "
+                android:textColor="#000000"
+
                 android:layout_marginBottom="4dp"
                 />
 
@@ -139,6 +169,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Semester : "
+                android:textColor="#000000"
+
                 android:layout_marginBottom="4dp"
                 />
 

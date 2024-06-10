@@ -1,7 +1,9 @@
 package com.rifat.sqlite2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,7 +113,6 @@ public class ShowFinalData extends AppCompatActivity {
     }// on Create Ends ===============
 
 
-
     //==============================================================
 
     public void loadData(Cursor cursor){
@@ -145,14 +147,10 @@ public class ShowFinalData extends AppCompatActivity {
 
     //==============================================================
     public class MyAdapter extends BaseAdapter{
-
-
         @Override
         public int getCount() {
-
             return arrayList.size();
         }
-
         @Override
         public Object getItem(int position) {
             return null;
@@ -169,6 +167,7 @@ public class ShowFinalData extends AppCompatActivity {
             LayoutInflater inflater=getLayoutInflater();
             View myView=inflater.inflate(R.layout.item,parent,false);
 
+            TextView tvid=myView.findViewById(R.id.tvid);
             TextView tvName=myView.findViewById(R.id.tvName);
             TextView tvGmail=myView.findViewById(R.id.tvGmail);
             TextView tvPassword=myView.findViewById(R.id.tvPassword);
@@ -186,15 +185,12 @@ public class ShowFinalData extends AppCompatActivity {
             String mobile=hashMap.get("mobile");
             String semester=hashMap.get("semester");
 
+            tvid.setText(id);
             tvName.setText(name);
             tvGmail.setText(gmail);
             tvPassword.setText(password);
             tvMobile.setText(mobile);
             tvSemester.setText(semester);
-
-
-
-
 
             tvDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -207,14 +203,67 @@ public class ShowFinalData extends AppCompatActivity {
                 }
             });
 
+      tvUpdate.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+                 ShowDialogBox();
 
 
+ }
+      });
 
             return myView;
         }
     }
 
     //==============================================================
+
+
+
+    // ==============================================================
+    public void ShowDialogBox (){
+        String setSpinner="item";
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+
+        EditText edIdAlertDialog=mView.findViewById(R.id.edIdAlertDialog);
+        EditText edNameAlertDialog=mView.findViewById(R.id.edNameAlertDialog);
+        EditText edGmailAlertDialog=mView.findViewById(R.id.edGmailAlertDialog);
+        EditText edPasswordAlertDialog=mView.findViewById(R.id.edPasswordAlertDialog);
+        EditText edMobileAlertDialog=mView.findViewById(R.id.edMobileAlertDialog);
+        EditText edSemesterAlertDialog=mView.findViewById(R.id.edSemesterAlertDialog);
+        Spinner edSpinnerAlertDialog=mView.findViewById(R.id.edSpinnerAlertDialog);
+
+
+
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCancelable(false);
+
+        mView.findViewById(R.id.chancelBTN).setOnClickListener(v -> {
+
+
+            alertDialog.dismiss();
+        });
+
+        mView.findViewById(R.id.okBTN).setOnClickListener(v -> {
+
+            dbHelper.updatedData(edIdAlertDialog.getText().toString(),edNameAlertDialog.getText().toString(),edGmailAlertDialog.getText().toString(),
+                    edPasswordAlertDialog.getText().toString(),edMobileAlertDialog.getText().toString(),edSemesterAlertDialog.getText().toString());
+
+       loadData(dbHelper.getAllData());
+            Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show();
+            alertDialog.dismiss();
+        });
+
+        alertDialog.show();
+
+    }
+
+    //==============================================================
+
 
     //==============================================================
 
